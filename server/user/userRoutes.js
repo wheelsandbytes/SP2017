@@ -1,30 +1,31 @@
-var express = require('express');
-var router = express.Router();
-var userController = require('./userController.js');
+const express = require('express');
+const authHandler = require('../handlers/loginHandlers').authme;
+let router = express.Router();
+const userController = require('./userController.js');
 
 /*
  * GET
  */
-router.get('/', userController.list);
+router.get('/', authHandler, userController.list);
 
 /*
  * GET
  */
-router.get('/:id', userController.show);
+router.get('/:id', authHandler, userController.show);
 
 /*
  * POST
  */
-router.post('/', userController.create);
+router.post('/', userController.create); // reserve for admin
 
 /*
  * PUT
  */
-router.put('/:id', userController.update);
+router.put('/:id', authHandler, userController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', userController.remove);
+router.delete('/:id', authHandler, userController.remove);
 
 module.exports = router;

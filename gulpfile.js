@@ -7,12 +7,12 @@ const jshint = require('gulp-jshint');
 const gulp = require('gulp');
 
 // code style checker to prevent mess
-gulp.task('jscs', () => {
-  return gulp.src(sources)
-    .pipe(jscs())
-    .pipe(jscs.reporter())
-    .pipe(jscs.reporter('fail'));
-});
+// gulp.task('jscs', () => {
+//   return gulp.src(sources)
+//     .pipe(jscs())
+//     .pipe(jscs.reporter())
+//     .pipe(jscs.reporter('fail'));
+// });
 
 gulp.task('lint', () => {
   return gulp.src(sources)
@@ -26,7 +26,7 @@ gulp.task('precommit', ['jscs', 'lint'],() => {
     return;
 });
 
-gulp.task('default', ['jscs', 'lint'], () => {
+gulp.task('default', ['lint'], () => {
   nodemon({
     script: 'server.js', ext: 'js html', env: { NODE_ENV: 'development' },
   });

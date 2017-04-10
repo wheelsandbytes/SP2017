@@ -23,15 +23,23 @@
   "dependencies": {
     "angular-ui-bootstrap": "^2.5.0",
     "angular-ui-router": "^0.4.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.1",
+    "connect-mongodb-session": "^1.3.0",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
+    "express-session": "^1.15.2",
     "gulp": "^3.9.1",
     "gulp-jscs": "^4.0.0",
     "gulp-jshint": "^2.0.4",
     "gulp-nodemon": "^2.2.1",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
+    "lodash": "^4.17.4",
     "mongoose": "^4.9.3",
-    "serve-index": "^1.8.0"
+    "morgan": "^1.8.1",
+    "serve-index": "^1.8.0",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
