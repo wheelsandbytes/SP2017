@@ -21,6 +21,7 @@ app.all("/*", function(req, res, next) {
     res.sendFile("index.html", { root: __dirname + "/client" });
 });
 
+app.use(express.static(__dirname + '/'));
 
 app.listen(8000, () => {
   console.log('EZ Customer Service Software is listening on Port: ' + 8000);
