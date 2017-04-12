@@ -1,7 +1,5 @@
 'use strict';
 
-import html from './shell.html';
-
 // @ngAnnotate
 class Shell {
   constructor(html) {

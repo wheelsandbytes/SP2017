@@ -2,7 +2,7 @@
 
 // @ngAnnotate
 class Routes {
-  constructor() {
+  constructor($stateProvider, $urlRouterProvider) {
     this.$stateProvider = $stateProvider;
     this.$urlRouterProvider = $urlRouterProvider;
 

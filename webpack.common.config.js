@@ -1,14 +1,13 @@
 const PATH = require('path');
-const ETP = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
     app: './client/index.js'
   },
   devServer: {
-    contentBase: PATH.resolve(__dirname, './client'),
+    contentBase: PATH.resolve(__dirname, 'client'),
     publicPath: '/',
-    port: 8000,
+    port: 3000,
     host: 'localhost'
   },
   module: {
@@ -37,8 +36,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: '[name].bundle.js',
-    path: PATH.resolve(__dirname, './dist/assets'),
-    publicPath: '/assets'
+    filename: '[name].[chunkhash].js',
+    path: PATH.resolve(__dirname, 'dist')
   }
 }

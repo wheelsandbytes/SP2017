@@ -1,5 +1,5 @@
 const MERGE = require('webpack-merge');
-const WPCC = require('./webpack.common.config.js');
+const WPCC = require('./webpack.common.config');
 
 module.exports = MERGE(WPCC, {
   watch: true,

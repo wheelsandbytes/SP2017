@@ -1,13 +1,13 @@
 const WP = require('webpack');
-const MERGE = require('merge');
+const MERGE = require('webpack-merge');
 const HTML = require('html-webpack-plugin');
-const WPCC = require('./webpack.common.config.js');
+const WPCC = require('./webpack.common.config');
 
 module.exports = MERGE(WPCC, {
   devtool: 'source-map',
   plugins: [
     new HTML({
-      template: './client/index.html'
+      template: 'client/index.html'
     }),
     new WP.optimize.CommonsChunkPlugin({
       name: 'vendor',
