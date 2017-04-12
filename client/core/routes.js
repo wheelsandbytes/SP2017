@@ -1,18 +1,21 @@
 'use strict';
 
 // @ngAnnotate
-class Routes {
-  constructor($stateProvider, $urlRouterProvider) {
-    this.$stateProvider = $stateProvider;
-    this.$urlRouterProvider = $urlRouterProvider;
+let routes = ($stateProvider, $urlRouterProvider) => {
 
-    this.$urlRouterProvider.otherwise('/');
-    this.$stateProvider
-      .state('login', {
-        url: '/login',
-        template: '<login></login>'
-      })
-  }
+  $urlRouterProvider.otherwise('');
+  $urlRouterProvider.when('', '/login');
+
+  $stateProvider
+    .state('index', {
+      //abstract: true,
+      url: '',
+      template: '<h1>index</h1>'
+    })
+    .state('index.login', {
+      url: '/login',
+      template: '<h1>login</h1>'
+    })
 }
 
-module.exports = Routes;
+module.exports = routes;

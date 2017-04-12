@@ -9,6 +9,6 @@ angular
   .module(MODULE_NAME, [
     angularUiRouter
   ])
-  .config('routes', Routes)
+  .config(Routes)
 
 module.exports = MODULE_NAME;
