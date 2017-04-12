@@ -19,6 +19,7 @@ app/users.htpasswd
 app../pdfs
 localStorage/
 .env
+reports/
 
 # Created by https://www.gitignore.io/api/linux,node,osx,windows,macos
 

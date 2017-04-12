@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const session = require('express-session');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -26,27 +27,31 @@ app.use(session({
 app.use(morgan('dev'));
 
 // requirements for backend routing
-const users = require('./server/user/userRoutes');
-const customers = require('./server/customer/customerRoutes');
-const routes = require('./server/routes');
-
-// backend routing
-app.use('/users', users);
-app.use('/customers', customers);
-app.use('/', routes);
+// const users = require('./server/user/userRoutes');
+// const customers = require('./server/customer/customerRoutes');
+// const routes = require('./server/routes');
+//
+// // backend routing
+// app.use('/users', users);
+// app.use('/customers', customers);
+// app.use('/', routes);
 
 // Front End
-app.use("/js", express.static(__dirname + "/client/js"));
-app.use("/img", express.static(__dirname + "/client/img"));
-app.use("/css", express.static(__dirname + "/client/css"));
-app.use("/partials", express.static(__dirname + "/client/partials"));
-app.use("/templates", express.static(__dirname + "/client/templates"));
-app.all("/*", function(req, res, next) {
-    res.sendFile("index.html", { root: __dirname + "/client" });
-});
+// app.use("/js", express.static(__dirname + "/client/js"));
+// app.use("/img", express.static(__dirname + "/client/img"));
+// app.use("/css", express.static(__dirname + "/client/css"));
+// app.use("/partials", express.static(__dirname + "/client/partials"));
+// app.use("/templates", express.static(__dirname + "/client/templates"));
+// app.all("/*", function(req, res, next) {
+//     res.sendFile("client.html", { root: __dirname + "/client" });
+// });
 
+const DIR = path.resolve(__dirname + '/');
+let indexPath = DIR + '/client/client.html';
+let client = require('./server/client/client.js');
 
-app.use(express.static(__dirname + '/'));
+app.use(express.static(DIR));
+client.register(app, indexPath);
 
 // Back end
 mongoose.connect('mongodb://admin:password@ds021994.mlab.com:21994/senior', (err) => {
@@ -55,8 +60,8 @@ mongoose.connect('mongodb://admin:password@ds021994.mlab.com:21994/senior', (err
     throw err;
   }
 
-  app.listen(8000, () => {
-    console.log('EZ Customer Service Software is listening on Port: ' + 8000);
+  app.listen(8080, () => {
+    console.log('EZ Customer Service Software is listening on Port: ' + 8080);
   });
 
 });
