@@ -3,7 +3,16 @@ var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
 
-var userSchema = new Schema({	'firstname' : String,	'lastname' : String,	'password' : String,	'email' : {		'type': String,		'unique': true	},	'isAdmin' : Boolean,	'session' : Schema.Types.Mixed,});
+var userSchema = new Schema({
+	'firstname' : String,
+	'lastname' : String,
+	'password' : String,
+	'email' : {
+		'type': String,
+		'unique': true
+	},
+	'isAdmin' : Boolean,
+});
 
 userSchema.pre('save', function(next, done) {
 		let user = this;
