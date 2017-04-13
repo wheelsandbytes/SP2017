@@ -4,8 +4,28 @@
   angular.module('dbService', [])
   .service('dbService', function($http) {
 
+    const url = 'http://localhost:8080';
+
     this.getHelloWorld = () => {
-      return 'Hello World'
+      return 'Hello World';
+    };
+
+    this.login = (email, password, cb) => {
+      return $http({
+        method: 'POST',
+        url: url + '/login',
+        data: {
+          username: email,
+          password: password
+        }
+    })
+      .then((response) => {
+        console.log("login success");
+        return cb(null, response);
+      }, (response) => {
+        console.log("login failure");
+        return cb(response);
+      });
     };
 
     this.getThisThing = () => {
