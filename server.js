@@ -37,9 +37,11 @@ app.use('/customers', customers);
 app.use('/', routes);
 
 // Front End
-app.use("/:file", express.static(__dirname + "/client"));
-app.all("/*", function(req, res, next) {
-    res.sendFile("client.html", { root: __dirname + "/client" });
+app.use('/client', express.static('client'));
+app.use('/assets', express.static('assets'));
+
+app.get("/", function(req, res, next) {
+    res.sendFile(__dirname + "/client/client.html");
 });
 
 // Back end
