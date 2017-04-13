@@ -3,7 +3,7 @@
 
   angular.module('allCustomers', ['customerListController'])
   .component('allCustomers', {
-    templateUrl: './client/customerList/customerList.html',
+    templateUrl: './client/customer/customerList/customerList.html',
     controller: 'customerListController'
   });
 })();
