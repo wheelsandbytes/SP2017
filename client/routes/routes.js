@@ -6,10 +6,11 @@
     'appHeader',
     'appMain',
     'appFooter',
-    'appLogin'
+    'appLogin',
+    'allCustomers'
   ])
   .config(function($locationProvider, $stateProvider, $urlRouterProvider) {
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
 
     $urlRouterProvider.otherwise('/');
     $urlRouterProvider.when('/', '/login')
@@ -28,6 +29,11 @@
       .state('app.login', {
         url: '/login',
         template: '<app-login></app-login>',
+        params: {},
+      })
+      .state('app.customerList', {
+        url: '/customer/all-customers',
+        template: '<all-customers></all-customers>',
         params: {},
       });
 
