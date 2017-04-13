@@ -10,6 +10,7 @@
     'createAdminAccount',
     'createCustomer',
     'viewEmployees',
+    'createEmployee',
     'allCustomers'
   ])
   .config(function($locationProvider, $stateProvider, $urlRouterProvider) {
@@ -44,6 +45,11 @@
       .state('app.viewEmployees', {
         url: '/admin-panel/view-employees',
         template: '<view-employees></view-employees>',
+        params: {},
+      })
+      .state('app.createEmployee', {
+        url: '/admin-panel/create-employee',
+        template: '<create-employee></create-employee>',
         params: {},
       })
       .state('app.createCustomer', {
