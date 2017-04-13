@@ -3,7 +3,7 @@
 
   angular.module('createCustomer', ['createCustomerController'])
   .component('createCustomer', {
-    templateUrl: './client/createCustomer/createCustomer.html',
+    templateUrl: './client/customer/createCustomer/createCustomer.html',
     controller: 'createCustomerController'
   });
 })();

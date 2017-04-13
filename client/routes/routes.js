@@ -47,7 +47,7 @@
         params: {},
       })
       .state('app.createCustomer', {
-        url: '/create-customer',
+        url: '/customer/create-customer',
         template: '<create-customer></create-customer>',
         params: {},
       })

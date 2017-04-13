@@ -22,11 +22,7 @@
         first: "Lulu-Mae",
         phone: "555-555-5555"
       }
-    ]
-
-    this.sortList = () => {
-      this.ascending = !this.ascending;
-    }
+    ];
 
   });
 })();
