@@ -9,7 +9,6 @@
         console.log(response.data);
         return;
       }
-
       this.customerList = response.data;
     });
 
