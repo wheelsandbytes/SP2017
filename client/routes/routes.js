@@ -6,13 +6,18 @@
     'appHeader',
     'appMain',
     'appFooter',
-    'appLogin'
+    'appLogin',
+    'createAdminAccount',
+    'createCustomer',
+    'viewEmployees'
   ])
   .config(function($locationProvider, $stateProvider, $urlRouterProvider) {
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
 
     $urlRouterProvider.otherwise('/');
-    $urlRouterProvider.when('/', '/login')
+    $urlRouterProvider.when('/', '/login');
+    // $urlRouterProvider.when('/', '');
+
 
     $stateProvider
       .state('app', {
@@ -29,7 +34,25 @@
         url: '/login',
         template: '<app-login></app-login>',
         params: {},
-      });
+      })
+      .state('app.createAdminAccount', {
+        url: '/super-admin/create-admin-account',
+        template: '<create-admin-account></create-admin-account>',
+        params: {},
+      })
+      .state('app.viewEmployees', {
+        url: '/admin-panel/view-employees',
+        template: '<view-employees></view-employees>',
+        params: {},
+      })
+      .state('app.createCustomer', {
+        url: '/create-customer',
+        template: '<create-customer></create-customer>',
+        params: {},
+      })
+
+
+      ;
 
     });
 })();
