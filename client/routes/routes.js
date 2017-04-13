@@ -9,7 +9,8 @@
     'appLogin',
     'createAdminAccount',
     'createCustomer',
-    'viewEmployees'
+    'viewEmployees',
+    'allCustomers'
   ])
   .config(function($locationProvider, $stateProvider, $urlRouterProvider) {
     // $locationProvider.html5Mode(true);
@@ -50,7 +51,11 @@
         template: '<create-customer></create-customer>',
         params: {},
       })
-
+      .state('app.customerList', {
+        url: '/customer/all-customers',
+        template: '<all-customers></all-customers>',
+        params: {},
+      })
 
       ;
 
