@@ -4,17 +4,21 @@
   angular.module('dbService', [])
   .service('dbService', function($http) {
 
+    this.getHelloWorld = () => {
+      return 'Hello World'
+    };
+
     this.getThisThing = () => {
       return $http({
         method: 'METHOD',
         url: 'localhost',
-        data: {}
+        data: {},
         headers: {}
       })
       .then((response) => {
         console.log("SUCCESS");
         return response;
-      }, (response) {
+      }, (response) => {
         console.log("FAILURE");
         return response;
       });

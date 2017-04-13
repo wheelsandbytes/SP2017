@@ -1,8 +1,9 @@
 (() => {
   'use strict';
 
-  angular.module('appLogin', [])
-  .component('appLogin', {
-    templateUrl: './client/login/login.html',
+  angular.module('allCustomers', ['customerListController'])
+  .component('allCustomers', {
+    templateUrl: './client/customerList/customerList.html',
+    controller: 'customerListController'
   });
 })();
