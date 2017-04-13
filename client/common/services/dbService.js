@@ -4,6 +4,8 @@
   angular.module('dbService', [])
   .service('dbService', function($http) {
 
+    let scope = this;
+
     const url = 'http://localhost:8080';
 
     this.getHelloWorld = () => {
@@ -21,10 +23,10 @@
     })
       .then((response) => {
         console.log("login success");
-        return cb(null, response);
+        return response;
       }, (response) => {
         console.log("login failure");
-        return cb(response);
+        return response;
       });
     };
 

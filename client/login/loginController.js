@@ -4,18 +4,21 @@
   angular.module('loginController', ['dbService'])
   .controller('loginController', function(dbService, $state) {
 
-    this.x = dbService.getHelloWorld();
+    let scope = this;
 
-    this.login = function() {
-      let email = this.email;
-      let password = this.password;
+    scope.x = dbService.getHelloWorld();
 
-      this.email = '';
-      this.password = '';
+    scope.login = function() {
+      let email = scope.email;
+      let password = scope.password;
 
-      dbService.login(email, password, function(err, res) {
-        if(err) {
-          return console.log(err);
+      scope.email = '';
+      scope.password = '';
+
+      dbService.login(email, password).then((response) => {
+        if(response.status !== 200) {
+          this.errorMessage = response.data;
+          return;
         }
 
         $state.go('app.customerList');
