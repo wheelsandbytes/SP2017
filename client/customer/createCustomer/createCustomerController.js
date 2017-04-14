@@ -1,8 +1,8 @@
 (() => {
   'use strict';
 
-  angular.module('createCustomerController', [])
-  .controller('createCustomerController', function() {
+  angular.module('createCustomerController', ['dbService'])
+  .controller('createCustomerController', function(dbService, $state) {
 
     this.emails = [];
     this.phones = [];
@@ -48,6 +48,37 @@
         default:
             console.log("ERROR: Update failed!");
       }
+    };
+
+    this.submit = () => {
+
+        let addresses = [];
+        addresses.push({
+          streetone: this.street1,
+          streettwo: this.street2,
+          city: this.city,
+          state: this.state,
+          zip: this.zip,
+        });
+
+        let customerjson = {
+          firstname: this.firstName,
+          lastname: this.lastName,
+          addresses: addresses,
+          emails: this.emails,
+          phonenumbers: this.phones
+        };
+
+        console.log(customerjson);
+
+        dbService.createCustomer(customerjson).then((response) => {
+          if(response.status !== 201) {
+            console.log(response.data);
+            return;
+          }
+          console.log(response.data);
+          $state.go('app.customerList');
+        });
     };
 
   });
