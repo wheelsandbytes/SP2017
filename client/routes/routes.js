@@ -11,7 +11,8 @@
     'createCustomer',
     'viewEmployees',
     'createEmployee',
-    'allCustomers'
+    'allCustomers',
+    'customerSingle'
   ])
   .config(function($locationProvider, $stateProvider, $urlRouterProvider) {
     // $locationProvider.html5Mode(true);
@@ -60,6 +61,11 @@
       .state('app.customerList', {
         url: '/customer/all-customers',
         template: '<all-customers></all-customers>',
+        params: {},
+      })
+      .state('app.customerSingle', {
+        url: '/customer/single-customer',
+        template: '<customer-single></customer-single>',
         params: {},
       })
 
