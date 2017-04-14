@@ -95,5 +95,20 @@
         return response;
       });
     };
+
+    this.createCustomer = (customerJSON) => {
+      return $http({
+        method: 'POST',
+        url: url + '/customers/',
+        data: customerJSON
+      })
+      .then((response) => {
+        console.log("create customer success");
+        return response;
+      }, (response) => {
+        console.log("create customer fail");
+        return response;
+      });
+    };
   });
 })();

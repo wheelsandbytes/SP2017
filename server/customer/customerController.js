@@ -47,7 +47,7 @@ module.exports = {
      * customerController.create()
      */
     create: function (req, res) {
-        var customer = new customerModel({			firstname : req.body.firstname,			lastname : req.body.lastname,			notes : req.body.notes,			addresses : req.body.addresses,			phonenumbers : req.body.phonenumbers,			dateCreated : req.body.dateCreated
+        var customer = new customerModel({			firstname : req.body.firstname,			lastname : req.body.lastname,			notes : req.body.notes,			addresses : req.body.addresses,			phonenumbers : req.body.phonenumbers,      emails: req.body.emails,			dateCreated : req.body.dateCreated
         });
 
         customer.save(function (err, customer) {
@@ -80,6 +80,7 @@ module.exports = {
             }
 
             customer.firstname = req.body.firstname ? req.body.firstname : customer.firstname;			customer.lastname = req.body.lastname ? req.body.lastname : customer.lastname;			customer.notes = req.body.notes ? req.body.notes : customer.notes;			customer.addresses = req.body.addresses ? req.body.addresses : customer.addresses;			customer.phonenumbers = req.body.phonenumbers ? req.body.phonenumbers : customer.phonenumbers;      customer.products = req.body.products ? req.body.products : customer.products;
+
             customer.save(function (err, customer) {
                 if (err) {
                     return res.status(500).json({

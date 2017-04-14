@@ -1,5 +1,5 @@
 <div class="bubble-wrap-tb-sm">
-  <button class="btn btn-default btn-lg"> New Customer </button>
+  <button data-ui-sref="app.createCustomer" class="btn btn-default btn-lg"> New Customer </button>
 </div>
 
 <form class="form-inline bubble-wrap-tb-sm">
@@ -22,17 +22,19 @@
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th class="lead"> Last </th>
-          <th class="lead"> First </th>
-          <th class="lead"> Phone </th>
+          <th class="lead"> <b>Last</b> </th>
+          <th class="lead"> <b>First</b> </th>
+          <th class="lead"> <b>Phone</b> </th>
+          <th class="lead"> <b>City</b> </th>
           <th> </th>
         </tr>
       </thead>
       <tbody>
         <tr data-ng-repeat="customer in $ctrl.customerList | orderBy: 'name' : $ctrl.ascending track by $index">
-          <td class="lead"> {{ customer.last }} </td>
-          <td class="lead"> {{ customer.first }} </td>
-          <td class="lead"> {{ customer.phone }} </td>
+          <td class="lead"> {{ customer.lastname }} </td>
+          <td class="lead"> {{ customer.firstname }} </td>
+          <td class="lead"> {{ customer.phonenumbers[0] }} </td>
+          <td class="lead"> {{ customer.addresses[0].city}} </td>
           <td>
             <button type="submit" class="btn btn-default btn-lg"> View Customer </button>
           </td>
