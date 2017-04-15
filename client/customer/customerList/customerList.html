@@ -36,7 +36,7 @@
           <td class="lead"> {{ customer.phonenumbers[0] }} </td>
           <td class="lead"> {{ customer.addresses[0].city}} </td>
           <td>
-            <button type="submit" class="btn btn-default btn-lg"> View Customer </button>
+            <button class="btn btn-default btn-lg" data-ng-click="$ctrl.selectCustomer(customer._id)"> View Customer </button>
           </td>
         </tr>
       </tbody>

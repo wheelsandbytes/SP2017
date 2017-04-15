@@ -3,14 +3,13 @@
 
   angular.module('dbService', [])
   .service('dbService', function($http) {
-
-    let scope = this;
-
     const url = 'http://localhost:8080';
 
-    this.getHelloWorld = () => {
-      return 'Hello World';
-    };
+    let customer = null;
+
+    this.getCustomer = () => {
+      return customer;
+    }
 
     this.login = (email, password, cb) => {
       return $http({
@@ -41,6 +40,21 @@
       }, (response) => {
         console.log("grab customers failure");
         return response;
+      });
+    };
+
+    this.getOneCustomer = (id) => {
+      return $http({
+        method: 'GET',
+        url: url + '/customers/' + id,
+      })
+      .then((response) => {
+        console.log("SUCCESS: grab single customer");
+        customer = response.data;
+        return response;
+      }, (response) => {
+        console.log("FAILURE: grab single customer");
+        return repsonse;
       });
     };
 

@@ -2,20 +2,24 @@
   'use strict';
 
   angular.module('customerListController', ['dbService'])
-  .controller('customerListController', function(dbService) {
+  .controller('customerListController', function(dbService, $state) {
 
     dbService.getAllCustomers().then((response) => {
-      if(response.status !== 200) {
-        console.log(response.data);
-        return;
-      }
       this.customerList = response.data;
+    }, (response) => {
+      console.log("CONTROLLER: ERROR: ", response.data);
     });
 
     this.ascending = true;
 
-    this.sortList = () => {
-      this.ascending = !this.ascending;
+    this.selectCustomer = (customerId) => {
+      console.log(customerId);
+      dbService.getOneCustomer(customerId).then((response) => {
+        console.log("CONTROLLER: ", response);
+        $state.go('app.customerSingle');
+      }, (response) => {
+        console.log("CONTROLLER: ERROR: ", response.data);
+      });
     };
 
   });
