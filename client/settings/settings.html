@@ -1,0 +1,64 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3> User Settings </h3>
+  </div>
+  <div class="panel-body">
+    <p class="lead"> {{ $ctrl.errorMessage }} </p>
+
+    <div data-ng-show="!editFirst">
+      <p class="lead">
+        <em> First Name: </em> Willie
+        &nbsp&nbsp
+        <button type="button" class="btn btn-lg btn-primary" data-ng-click="editFirst=!editFirst">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+      </p>
+    </div>
+
+    <form class="form-inline" data-ng-show="editFirst" data-ng-submit="$ctrl.editFirst()">
+      <div class="form-group bubble-wrap-sm">
+        <label for="first"> First Name: </label>
+        <input type="test" class="form-control input-lg" data-ng-model="$ctrl.first" id="first" placeholder="Email" required>
+        <button type="submit" class="btn btn-default btn-lg"> Change First Name </button>
+      </div>
+    </form>
+
+    <div data-ng-show="!editLast">
+      <p class="lead">
+        <em> Last Name: </em> Jenkins
+        &nbsp&nbsp
+        <button type="button" class="btn btn-lg btn-primary" data-ng-click="editLast=!editLast">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+      </p>
+    </div>
+
+    <form class="form-inline" data-ng-show="editLast" data-ng-submit="$ctrl.editLast()">
+      <div class="form-group bubble-wrap-sm">
+        <label for="last"> Last Name: </label>
+        <input type="text" class="form-control input-lg" data-ng-model="$ctrl.last" id="last" placeholder="Password" required>
+        <button type="submit" class="btn btn-default btn-lg"> Change Last Name </button>
+      </div>
+    </form>
+
+    <div data-ng-show="!editPassword">
+      <a href class="lead" data-ng-click="editPassword=!editPassword"> Change Password </a>
+    </div>
+
+    <form data-ng-show="editPassword" data-ng-submit="$ctrl.editPassword()">
+      <div class="form-group bubble-wrap-sm">
+        <label for="passwordOne"> Password </label>
+        <input type="password" class="form-control input-lg" data-ng-model="$ctrl.passwordOne" id="passwordOne" placeholder="Password" required>
+      </div>
+
+      <div class="form-group bubble-wrap-sm">
+        <label for="passwordTwo"> Password </label>
+        <input type="password" class="form-control input-lg" data-ng-model="$ctrl.passwordTwo" id="passwordTwo" placeholder="Password" required>
+      </div>
+
+      <div class="bubble-wrap-sm">
+        <button type="submit" class="btn btn-default btn-lg"> Change Password </button>
+      </div>
+    </form>
+  </div>
+</div>

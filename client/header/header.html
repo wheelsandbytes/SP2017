@@ -17,13 +17,11 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Profile <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#"> Settings </a></li>
-            <li role="separator" class="divider"></li>
             <li><a data-ui-sref="app.viewEmployees" href="#"> Admin Panel </a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#"> Change Password </a></li>
+            <li><a data-ui-sref="app.settings"> Settings </a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#"> Log Out </a></li>
+            <li><a data-ui-sref="app.login"> Log Out </a></li>
           </ul>
         </li>
       </ul>
@@ -33,7 +31,7 @@
           <a href class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a data-ui-sref="app.customerList"> Customers </a></li>
-            <li><a href="app.productList"> Products </a></li>
+            <li class="disabled"><a href> Products </a></li>
           </ul>
         </li>
       </ul>

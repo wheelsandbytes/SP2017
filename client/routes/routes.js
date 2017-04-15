@@ -13,7 +13,8 @@
     'createEmployee',
     'allCustomers',
     'customerSingle',
-    'editCustomer'
+    'editCustomer',
+    'settings'
   ])
   .config(function($locationProvider, $stateProvider, $urlRouterProvider) {
     // $locationProvider.html5Mode(true);
@@ -69,7 +70,11 @@
         template: '<customer-single></customer-single>',
         params: {},
       })
-
+      .state('app.settings', {
+        url: '/settings',
+        template: '<settings></settings>',
+        params: {},
+      })
       ;
 
     });
