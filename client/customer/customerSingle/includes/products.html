@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3> Products </h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="lead"> <b>Name</b> </th>
+          <th class="lead"> <b>Price</b> </th>
+          <th class="lead"> <b>Frequency</b> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ng-repeat="product in $ctrl.productList | orderBy: 'name' track by $index">
+          <td>
+            <button class="btn btn-lg" data-ng-click="product.isActive=!product.isActive">
+              <span class="glyphicon glyphicon-plus text-success" aria-hidden="true" data-ng-if="!product.isActive"></span>
+              <span class="glyphicon glyphicon-minus text-danger" aria-hidden="true" data-ng-if="product.isActive"></span>
+            </button>
+          </td>
+          <td class="lead"> {{ product.name }} </td>
+          <td class="lead"> {{ product.price | currency: usd }} </td>
+          <td class="lead"> {{ $ctrl.frequency(product.frequency) }} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

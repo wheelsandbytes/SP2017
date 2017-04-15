@@ -1,0 +1,53 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>
+      {{ $ctrl.customer.lastname }}, {{ $ctrl.customer.firstname }}
+      &nbsp&nbsp
+      <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#editCustomerModal">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </button>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <address class="lead">
+          <em> Address: </em><br />
+          {{ $ctrl.customer.addresses[0].streetone }} <br />
+          {{ $ctrl.customer.addresses[0].streettwo }} <br />
+          {{ $ctrl.customer.addresses[0].city }}, {{ $ctrl.customer.addresses[0].state }} {{ $ctrl.customer.addresses[0].zip }} <br />
+        </address>
+
+        <address class="lead">
+          <em> Phone: </em><br />
+          {{ $ctrl.customer.phonenumbers[0] }} <br />
+        </address>
+
+        <address class="lead">
+          <em> Email: </em><br />
+          {{ $ctrl.customer.emails[0] }} <br />
+        </address>
+      </div>
+
+      <div class="col-sm-6">
+        <em class="lead"> Products: </em><br />
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div data-ng-repeat="product in $ctrl.customer.products track by $index">
+              <div class="panel-heading" role="tab" id="{{ 'heading' + $index }}">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="{{ 'collapse' + $index }}" aria-expanded="true" aria-controls="{{ 'collapse' + $index }}">
+                  {{ product.name }}
+                </a>
+              </div>
+              <div class="panel-collapse collapse in" role="tabpanel" id="{{ 'collapse' + $index }}" aria-labelledby="{{ 'heading' + $index }}">
+                <div class="panel-body">
+                  product stuff
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

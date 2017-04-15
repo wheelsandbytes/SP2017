@@ -12,7 +12,8 @@
     'viewEmployees',
     'createEmployee',
     'allCustomers',
-    'customerSingle'
+    'customerSingle',
+    'editCustomer'
   ])
   .config(function($locationProvider, $stateProvider, $urlRouterProvider) {
     // $locationProvider.html5Mode(true);

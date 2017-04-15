@@ -51,6 +51,7 @@
       .then((response) => {
         console.log("SUCCESS: grab single customer");
         customer = response.data;
+        console.log(response.data);
         return response;
       }, (response) => {
         console.log("FAILURE: grab single customer");
@@ -80,18 +81,87 @@
       });
     };
 
-    this.getThisThing = () => {
+    this.getAvailableProducts = () => {
+      return [
+        {
+      		'start': null,
+      		'end': null,
+      		'isActive': false,
+      		'name': 'Widgets',
+      		'number': 1,
+      		'price': 126.34,
+      		'frequency': 1,
+      		'total': null,
+      		'dateCreated': null
+        },
+        {
+          'start': null,
+      		'end': null,
+      		'isActive': false,
+      		'name': 'Shenanigans Magazine',
+      		'number': 1,
+      		'price': 9.99,
+      		'frequency': 12,
+      		'total': null,
+      		'dateCreated': null
+        },
+        {
+          'start': null,
+      		'end': null,
+      		'isActive': false,
+      		'name': 'Hijinks Weekly',
+      		'number': 1,
+      		'price': 3.99,
+      		'frequency': 52,
+      		'total': null,
+      		'dateCreated': null
+        },
+        {
+          'start': null,
+      		'end': null,
+      		'isActive': false,
+      		'name': "Thing'em-bob",
+      		'number': 1,
+      		'price': 415.96,
+      		'frequency': 1,
+      		'total': null,
+      		'dateCreated': null
+        },
+        {
+          'start': null,
+      		'end': null,
+      		'isActive': false,
+      		'name': 'Frob',
+      		'number': 1,
+      		'price': 84.30,
+      		'frequency': 1,
+      		'total': null,
+      		'dateCreated': null
+        }
+      ];
+    };
+
+    this.getAvailableNoteTypes = () => {
+      return [
+        { name: 'Payment' },
+        { name: 'Callback' },
+        { name: 'Refund' },
+        { name: 'Complaint' },
+        { name: 'General' }
+      ];
+    };
+
+    this.addNote = (jsonObject) => {
       return $http({
-        method: 'METHOD',
-        url: 'localhost',
-        data: {},
-        headers: {}
+        method: 'PUT',
+        url: url + '/customers/' + jsonObject.id,
+        data: jsonObject.note
       })
       .then((response) => {
-        console.log("SUCCESS");
+        console.log("SUCCESS: add note");
         return response;
       }, (response) => {
-        console.log("FAILURE");
+        console.log("ERROR: add note");
         return response;
       });
     };

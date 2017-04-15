@@ -4,8 +4,6 @@
   angular.module('loginController', ['dbService'])
   .controller('loginController', function(dbService, $state) {
 
-    this.x = dbService.getHelloWorld();
-
     this.login = function() {
       let email = this.email;
       let password = this.password;
