@@ -6,23 +6,42 @@
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th></th>
           <th class="lead"> <b>Name</b> </th>
           <th class="lead"> <b>Price</b> </th>
           <th class="lead"> <b>Frequency</b> </th>
         </tr>
       </thead>
       <tbody>
-        <tr data-ng-repeat="product in $ctrl.productList | orderBy: 'name' track by $index">
-          <td>
-            <button class="btn btn-lg" data-ng-click="product.isActive=!product.isActive">
-              <span class="glyphicon glyphicon-plus text-success" aria-hidden="true" data-ng-if="!product.isActive"></span>
-              <span class="glyphicon glyphicon-minus text-danger" aria-hidden="true" data-ng-if="product.isActive"></span>
-            </button>
-          </td>
+        <tr>
+          <form>
+
+            <td>
+              <input type="text" class="form-control input-lg" placeholder="Product Name" data-ng-model="$ctrl.productName" required />
+            </td>
+
+            <td>
+              <input type="number" class="form-control input-lg" placeholder="Price" data-ng-model="$ctrl.productPrice" required />
+            </td>
+
+            <td>
+              <select name="productFreq" data-ng-options="type.name for type in $ctrl.frequencyTypes | orderBy: 'name'" data-ng-model="$ctrl.productFreq" class="form-control input-lg" required></select>
+            </td>
+
+            <td>
+              <button class="btn btn-lg" data-ng-click="$ctrl.addProduct()"> Add </button>
+            </td>
+          </form>
+        </tr>
+
+        <tr data-ng-repeat="product in $ctrl.customer.products track by $index">
           <td class="lead"> {{ product.name }} </td>
           <td class="lead"> {{ product.price | currency: usd }} </td>
-          <td class="lead"> {{ $ctrl.frequency(product.frequency) }} </td>
+          <td class="lead"> {{ product.frequency }} </td>
+          <td>
+            <button class="btn btn-lg" data-ng-click="$ctrl.removeProduct($index)">
+              <span class="glyphicon glyphicon-minus text-danger" aria-hidden="true"></span>
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
