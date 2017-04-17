@@ -155,13 +155,30 @@
       return $http({
         method: 'PUT',
         url: url + '/customers/' + jsonObject.id,
-        data: jsonObject.note
+        data: { 'notes': jsonObject.notes }
       })
       .then((response) => {
         console.log("SUCCESS: add note");
         return response;
       }, (response) => {
         console.log("ERROR: add note");
+        console.log(response);
+        return response;
+      });
+    };
+
+    this.addProduct = (jsonObject) => {
+      return $http({
+        method: 'PUT',
+        url: url + '/customers/' + jsonObject.id,
+        data: { 'products': jsonObject.products }
+      })
+      .then((response) => {
+        console.log("SUCCESS: add products");
+        return response;
+      }, (response) => {
+        console.log("ERROR: add products");
+        console.log(response);
         return response;
       });
     };
