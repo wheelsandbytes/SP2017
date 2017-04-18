@@ -24,6 +24,9 @@
         console.log("login success");
         loginService.setLoginTrue();
         loginService.setUserID(response.data.userID);
+        loginService.setFirstName(response.data.firstName);
+        loginService.setLastName(response.data.lastName);
+
         return response;
       }, (response) => {
         console.log("login failure");
