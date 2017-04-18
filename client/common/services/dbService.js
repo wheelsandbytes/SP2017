@@ -19,7 +19,7 @@
           username: email,
           password: password
         }
-    })
+      })
       .then((response) => {
         console.log("login success");
         loginService.setLoginTrue();
@@ -35,7 +35,7 @@
       return $http({
         method: 'POST',
         url: url + '/logout',
-    })
+      })
       .then((response) => {
         loginService.setLoginFalse();
         console.log("logout success");
@@ -82,11 +82,11 @@
         method: 'POST',
         url: url + '/users/',
         data: {
-      			firstname : first,
-      			lastname : last,
-      			password : password,
-      			email : email,
-      			isAdmin : admin
+          firstname : first,
+          lastname : last,
+          password : password,
+          email : email,
+          isAdmin : admin
         }
       })
       .then((response) => {
@@ -101,59 +101,59 @@
     this.getAvailableProducts = () => {
       return [
         {
-      		'start': null,
-      		'end': null,
-      		'isActive': false,
-      		'name': 'Widgets',
-      		'number': 1,
-      		'price': 126.34,
-      		'frequency': 1,
-      		'total': null,
-      		'dateCreated': null
+          'start': null,
+          'end': null,
+          'isActive': false,
+          'name': 'Widgets',
+          'number': 1,
+          'price': 126.34,
+          'frequency': 1,
+          'total': null,
+          'dateCreated': null
         },
         {
           'start': null,
-      		'end': null,
-      		'isActive': false,
-      		'name': 'Shenanigans Magazine',
-      		'number': 1,
-      		'price': 9.99,
-      		'frequency': 12,
-      		'total': null,
-      		'dateCreated': null
+          'end': null,
+          'isActive': false,
+          'name': 'Shenanigans Magazine',
+          'number': 1,
+          'price': 9.99,
+          'frequency': 12,
+          'total': null,
+          'dateCreated': null
         },
         {
           'start': null,
-      		'end': null,
-      		'isActive': false,
-      		'name': 'Hijinks Weekly',
-      		'number': 1,
-      		'price': 3.99,
-      		'frequency': 52,
-      		'total': null,
-      		'dateCreated': null
+          'end': null,
+          'isActive': false,
+          'name': 'Hijinks Weekly',
+          'number': 1,
+          'price': 3.99,
+          'frequency': 52,
+          'total': null,
+          'dateCreated': null
         },
         {
           'start': null,
-      		'end': null,
-      		'isActive': false,
-      		'name': "Thing'em-bob",
-      		'number': 1,
-      		'price': 415.96,
-      		'frequency': 1,
-      		'total': null,
-      		'dateCreated': null
+          'end': null,
+          'isActive': false,
+          'name': "Thing'em-bob",
+          'number': 1,
+          'price': 415.96,
+          'frequency': 1,
+          'total': null,
+          'dateCreated': null
         },
         {
           'start': null,
-      		'end': null,
-      		'isActive': false,
-      		'name': 'Frob',
-      		'number': 1,
-      		'price': 84.30,
-      		'frequency': 1,
-      		'total': null,
-      		'dateCreated': null
+          'end': null,
+          'isActive': false,
+          'name': 'Frob',
+          'number': 1,
+          'price': 84.30,
+          'frequency': 1,
+          'total': null,
+          'dateCreated': null
         }
       ];
     };
@@ -194,6 +194,23 @@
         return response;
       }, (response) => {
         console.log("grab users failure");
+        return response;
+      });
+    };
+
+    this.deleteEmployee = (email) => {
+      return $http({
+        method: 'DELETE',
+        url: url + '/users/',
+        data: {
+          email : email
+        }
+      })
+      .then((response) => {
+        console.log("delete Account success");
+        return response;
+      }, (response) => {
+        console.log("delete Account failure");
         return response;
       });
     };
@@ -251,6 +268,9 @@
         return response;
       });
     };
+
+
+
 
   });
 })();

@@ -1,8 +1,8 @@
 (() => {
   'use strict';
 
-  angular.module('settingsController', ['dbService'])
-  .controller('settingsController', function(dbService) {
+  angular.module('settingsController', ['dbService','loginService'])
+  .controller('settingsController', function(dbService,loginService) {
 
     this.first = 'Willie';
     this.last = 'Jenkins';

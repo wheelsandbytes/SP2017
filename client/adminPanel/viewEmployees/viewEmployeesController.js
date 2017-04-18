@@ -1,8 +1,8 @@
 (() => {
   'use strict';
 
-  angular.module('viewEmployeesController', ['dbService'])
-  .controller('viewEmployeesController', function(dbService) {
+  angular.module('viewEmployeesController', ['dbService','loginService'])
+  .controller('viewEmployeesController', function(dbService,loginService) {
 
     dbService.getAllEmployees().then((response) => {
       if(response.status !== 200) {
@@ -21,14 +21,14 @@
       this.ascending = !this.ascending;
     };
 
-    this.fireEmployee = () => {
-      // dbService.deleteEmployee().then((response) => {
-      //   if (response.status !== 200) {
-      //     console.log(response.data);
-      //     return;
-      //   }
-      //   console.log(response.data);
-      // })
+    this.fireEmployee = (email) => {
+      dbService.deleteEmployee(email).then((response) => {
+        if (response.status !== 200) {
+          console.log(response.data);
+          return;
+        }
+        console.log(response.data);
+      })
     };
 
   });
