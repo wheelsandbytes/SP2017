@@ -33,8 +33,8 @@
         <tr data-ng-repeat="customer in $ctrl.customerList | orderBy: 'name' : $ctrl.ascending track by $index">
           <td class="lead"> {{ customer.lastname }} </td>
           <td class="lead"> {{ customer.firstname }} </td>
-          <td class="lead"> {{ customer.phonenumbers[0] }} </td>
-          <td class="lead"> {{ customer.addresses[0].city}} </td>
+          <td class="lead"> {{ customer.phonenumbers[customer.phonenumbers.length - 1] }} </td>
+          <td class="lead"> {{ customer.addresses[customer.addresses.length - 1].city }} </td>
           <td>
             <button class="btn btn-default btn-lg" data-ng-click="$ctrl.selectCustomer(customer._id)"> View Customer </button>
           </td>

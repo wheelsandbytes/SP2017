@@ -75,6 +75,11 @@
         template: '<settings></settings>',
         params: {},
       })
+      .state('app.editCustomer', {
+        url: '/customer/edit-customer',
+        template: '<edit-customer></edit-customer>',
+        params: {},
+      })
       ;
 
     });

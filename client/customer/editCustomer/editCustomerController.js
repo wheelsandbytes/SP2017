@@ -48,7 +48,7 @@
           console.log("editcustomer:", response);
           dbService.getOneCustomer(this.customer._id).then((response) => {
             console.log("getone: ", response);
-            $state.reload();
+            $state.go('app.customerSingle');
           }, (response) => {
             this.errorMessage = "Edit Customer Failed";
           });
