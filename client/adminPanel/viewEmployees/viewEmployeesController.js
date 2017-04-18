@@ -21,6 +21,15 @@
       this.ascending = !this.ascending;
     };
 
+    this.fireEmployee = () => {
+      // dbService.deleteEmployee().then((response) => {
+      //   if (response.status !== 200) {
+      //     console.log(response.data);
+      //     return;
+      //   }
+      //   console.log(response.data);
+      // })
+    };
 
   });
 })();
