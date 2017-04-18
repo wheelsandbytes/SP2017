@@ -14,7 +14,14 @@
 
         var service = {
 
-          // take in new token on each response
+          'request': function(config) {
+
+            var loginService = $injector.get('loginService');
+              loginService.setLoginTrue();
+
+            return config;
+          },
+
           'response': function(response) {
 
             if(response.status === 401) {
@@ -30,6 +37,7 @@
 
             if(response.status === 401) {
               var stateService = $injector.get('$state');
+              var loginService = $injector.get('loginService');
                 loginService.setLoginFalse();
                 stateService.go('app.login');
             }

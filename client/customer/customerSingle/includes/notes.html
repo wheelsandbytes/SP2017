@@ -27,10 +27,10 @@
             </td>
           </form>
         </tr>
-        <tr data-ng-repeat="note in $ctrl.customer.notes track by $index">
+        <tr data-ng-repeat="note in $ctrl.customer.notes | orderBy: 'Date':true track by $index ">
           <td class="lead"> {{ note.noteType }} </td>
           <td class="lead"> {{ note.comment }} </td>
-          <td class="lead"> {{ note.Date }} </td>
+          <td class="lead"> {{ note.Date | date:'MM/dd/yyyy @ h:mma'}} </td>
         </tr>
       </tbody>
     </table>

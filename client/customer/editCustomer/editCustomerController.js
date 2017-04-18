@@ -16,7 +16,7 @@
     this.zip = this.customer.addresses[this.customer.addresses.length - 1].zip;
 
     this.emailLine = this.customer.emails[this.customer.emails.length - 1];
-    this.phoneLine = this.customer.phonenumbers[this.customer.phonenumbers.length - 1]
+    this.phoneLine = this.customer.phonenumbers[this.customer.phonenumbers.length - 1];
 
     this.emails = this.customer.emails;
     this.phones = this.customer.phonenumbers;

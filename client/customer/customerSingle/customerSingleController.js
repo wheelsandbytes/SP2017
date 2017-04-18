@@ -66,7 +66,7 @@
         notes: this.customer.notes
       };
 
-      if ( this.noteType.name != null && this.comment != null ) {
+      if ( this.noteType.name !== null && this.comment !== null ) {
         dbService.addNote(jsonObject);
       }
     };
