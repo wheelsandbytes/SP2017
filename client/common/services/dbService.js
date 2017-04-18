@@ -51,7 +51,7 @@
       .then((response) => {
         console.log("SUCCESS: grab single customer");
         customer = response.data;
-        console.log(response.data);
+        // console.log(response.data);
         return response;
       }, (response) => {
         console.log("FAILURE: grab single customer");
@@ -167,22 +167,6 @@
       });
     };
 
-    this.addProduct = (jsonObject) => {
-      return $http({
-        method: 'PUT',
-        url: url + '/customers/' + jsonObject.id,
-        data: { 'products': jsonObject.products }
-      })
-      .then((response) => {
-        console.log("SUCCESS: add products");
-        return response;
-      }, (response) => {
-        console.log("ERROR: add products");
-        console.log(response);
-        return response;
-      });
-    };
-
     this.getAllEmployees = () => {
       return $http({
         method: 'GET',
@@ -211,5 +195,45 @@
         return response;
       });
     };
+
+    this.addProduct = (jsonObject) => {
+      return $http({
+        method: 'PUT',
+        url: url + '/customers/' + jsonObject.id,
+        data: { 'products': jsonObject.products }
+      })
+      .then((response) => {
+        console.log("SUCCESS: add products");
+        return response;
+      }, (response) => {
+        console.log("ERROR: add products");
+        console.log(response);
+        return response;
+      });
+    };
+
+    this.editCustomer = (jsonObject) => {
+
+      return $http({
+        method: 'PUT',
+        url: url + '/customers/' + jsonObject.id,
+        data: {
+          'firstname': jsonObject.customerData.firstname,
+          'lastname': jsonObject.customerData.lastname,
+          'addresses': jsonObject.customerData.addresses,
+          'phonenumbers': jsonObject.customerData.phonenumbers,
+          'emails': jsonObject.customerData.emails
+        }
+      })
+      .then((response) => {
+        console.log("SUCCESS: editCustomer");
+        return response;
+      }, (response) => {
+        console.log("ERROR: editCustomer");
+        console.log(response);
+        return response;
+      });
+    };
+
   });
 })();

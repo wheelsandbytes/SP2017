@@ -6,8 +6,56 @@
 
     this.customer = dbService.getCustomer();
 
-    this.emails = [];
-    this.phones = [];
+    this.firstName = this.customer.firstname;
+    this.lastName = this.customer.lastname;
+
+    this.street1 = this.customer.addresses[this.customer.addresses.length - 1].streetone;
+    this.street2 = this.customer.addresses[this.customer.addresses.length - 1].streettwo;
+    this.city = this.customer.addresses[this.customer.addresses.length - 1].city;
+    this.state = this.customer.addresses[this.customer.addresses.length - 1].state;
+    this.zip = this.customer.addresses[this.customer.addresses.length - 1].zip;
+
+    this.emailLine = this.customer.emails[this.customer.emails.length - 1];
+    this.phoneLine = this.customer.phonenumbers[this.customer.phonenumbers.length - 1]
+
+    this.emails = this.customer.emails;
+    this.phones = this.customer.phonenumbers;
+
+    this.submit = () => {
+        let addresses = [];
+        addresses.push({
+          streetone: this.street1,
+          streettwo: this.street2,
+          city: this.city,
+          state: this.state,
+          zip: this.zip,
+        });
+
+        let customerjson = {
+          firstname: this.firstName,
+          lastname: this.lastName,
+          addresses: addresses,
+          emails: this.emails,
+          phonenumbers: this.phones
+        };
+
+        let jsonObject = {
+          id: this.customer._id,
+          customerData: customerjson
+        };
+
+        dbService.editCustomer(jsonObject).then((response) => {
+          console.log("editcustomer:", response);
+          dbService.getOneCustomer(this.customer._id).then((response) => {
+            console.log("getone: ", response);
+            $state.reload();
+          }, (response) => {
+            this.errorMessage = "Edit Customer Failed";
+          });
+        }, (response) => {
+          console.log("ERROR: CONTROLLER: ", response);
+        });
+    };
 
     let addPhone = () => {
       let phone = this.phoneLine;
@@ -51,37 +99,6 @@
             console.log("ERROR: Update failed!");
       }
     };
-
-    // this.submit = () => {
-    //
-    //     let addresses = [];
-    //     addresses.push({
-    //       streetone: this.street1,
-    //       streettwo: this.street2,
-    //       city: this.city,
-    //       state: this.state,
-    //       zip: this.zip,
-    //     });
-    //
-    //     let customerjson = {
-    //       firstname: this.firstName,
-    //       lastname: this.lastName,
-    //       addresses: addresses,
-    //       emails: this.emails,
-    //       phonenumbers: this.phones
-    //     };
-    //
-    //     console.log(customerjson);
-    //
-    //     dbService.createCustomer(customerjson).then((response) => {
-    //       if(response.status !== 201) {
-    //         console.log(response.data);
-    //         return;
-    //       }
-    //       console.log(response.data);
-    //       $state.go('app.customerList');
-    //     });
-    // };
 
   });
 })();

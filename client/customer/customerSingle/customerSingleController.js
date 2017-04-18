@@ -5,7 +5,7 @@
   .controller('customerSingleController', function(dbService) {
     this.customer = dbService.getCustomer();
 
-    console.log(this.customer);
+    // $('#editCustomerModal').modal('hide');
 
     this.productList = this.customer.products;
     this.noteTypes = dbService.getAvailableNoteTypes();
@@ -41,7 +41,7 @@
         freq = 'One-Time';
       }
       return freq;
-    }
+    };
 
     let baseRoute = "./client/customer/customerSingle/includes/";
     this.includePaths = [
@@ -52,7 +52,6 @@
     ];
 
     this.addNote = () => {
-
       this.customer.notes.push(
         {
           'noteType': this.noteType.name,
@@ -72,19 +71,7 @@
       console.log(this.customer);
     };
 
-
-    this.editCustomer = () => {
-      // dbService.editCustomer(this.customer._id);
-    }
-  	// 'notes' : [{
-  	// 	'type': String,
-  	// 	'comment': String,
-  	// 	'Date': String,
-  	// 	'User': String
-  	// }],
-
     this.addProduct = () => {
-
       let newProduct = {
         'start': null,
         'end': null,
@@ -96,9 +83,7 @@
         'total': null,
         'dateCreated': Date.now()
       };
-
       console.log(newProduct);
-
       this.customer.products.push(newProduct);
 
       let jsonObject = {
@@ -110,9 +95,7 @@
     };
 
     this.removeProduct = (index) => {
-
       this.customer.products.splice(index,1);
-
       console.log(this.customer.products);
 
       let jsonObject = {

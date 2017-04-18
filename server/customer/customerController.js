@@ -66,6 +66,7 @@ module.exports = {
      */
     update: function (req, res) {
         var id = req.params.id;
+
         customerModel.findOne({_id: id}, function (err, customer) {
             if (err) {
                 return res.status(400).json({
@@ -79,9 +80,9 @@ module.exports = {
                 });
             }
 
-            console.log(req.body.notes);
 
             customer.firstname = req.body.firstname ? req.body.firstname : customer.firstname;			customer.lastname = req.body.lastname ? req.body.lastname : customer.lastname;			customer.notes = req.body.notes ? req.body.notes : customer.notes;			customer.addresses = req.body.addresses ? req.body.addresses : customer.addresses;			customer.phonenumbers = req.body.phonenumbers ? req.body.phonenumbers : customer.phonenumbers;      customer.products = req.body.products ? req.body.products : customer.products;
+      customer.emails = req.body.emails ? req.body.emails : customer.emails;
 
             customer.save(function (err, customer) {
                 if (err) {

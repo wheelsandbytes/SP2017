@@ -6,39 +6,39 @@
       <form data-ng-submit = "$ctrl.submit()">
         <div class="row">
           <div class="form-group padding-sm col-xs-6">
-            <label for="user"> First Name </label>
-            <input type="text" class="form-control input-lg" id="first" data-ng-model="$ctrl.firstName" placeholder="John">
+            <label for="editfirst"> First Name </label>
+            <input type="text" class="form-control input-lg" id="editfirst" data-ng-model="$ctrl.firstName" placeholder="John">
           </div>
           <div class="form-group padding-sm col-xs-6">
-            <label for="user"> Last Name </label>
-            <input type="text" class="form-control input-lg" id="last" data-ng-model="$ctrl.lastName" placeholder="Smith">
+            <label for="editlast"> Last Name </label>
+            <input type="text" class="form-control input-lg" id="editlast" data-ng-model="$ctrl.lastName" placeholder="Smith">
           </div>
         </div>
 
         <div class="row">
           <div class="form-group col-xs-12">
-            <label for="street1"> Street1 </label>
-            <input type="text" class="form-control input-lg" id="street1" data-ng-model="$ctrl.street1" placeholder="Password">
+            <label for="editstreet1"> Street1 </label>
+            <input type="text" class="form-control input-lg" id="editstreet1" data-ng-model="$ctrl.street1" placeholder="1313 Mockingbird LN">
           </div>
         </div>
         <div class="row">
           <div class="form-group col-xs-12">
-            <label for="street2"> Street2 </label>
-            <input type="text" class="form-control input-lg" id="street2" data-ng-model="$ctrl.street2" placeholder="Password">
+            <label for="editstreet2"> Street2 </label>
+            <input type="text" class="form-control input-lg" id="editstreet2" data-ng-model="$ctrl.street2" placeholder="Apt #4">
           </div>
         </div>
         <div class="row">
           <div class="form-group col-xs-4">
-            <label for="city"> City </label>
-            <input type="text" class="form-control input-lg" id="city" data-ng-model="$ctrl.city" placeholder="Gainesville">
+            <label for="editcity"> City </label>
+            <input type="text" class="form-control input-lg" id="editcity" data-ng-model="$ctrl.city" placeholder="Gainesville">
           </div>
           <div class="form-group col-xs-4">
-            <label for="state"> State </label>
-            <input type="text" class="form-control input-lg" id="state" data-ng-model="$ctrl.state" placeholder="FL">
+            <label for="editstate"> State </label>
+            <input type="text" class="form-control input-lg" id="editstate" data-ng-model="$ctrl.state" placeholder="FL">
           </div>
           <div class="form-group col-xs-4">
-            <label for="zip"> Zip </label>
-            <input type="text" class="form-control input-lg" id="zip" data-ng-model="$ctrl.zip" placeholder="32607">
+            <label for="editzip"> Zip </label>
+            <input type="text" class="form-control input-lg" id="editzip" data-ng-model="$ctrl.zip" placeholder="32607">
           </div>
         </div>
 
@@ -56,7 +56,7 @@
           <div class="col-xs-6" >
             <label for="phone"> Phone </label>
             <div class="input-group">
-              <input type="phone" class="form-control input-lg" data-ng-model="$ctrl.phoneLine" placeholder="123.123.1234">
+              <input type="phone" class="form-control input-lg" data-ng-model="$ctrl.phoneLine" placeholder="352.555.5555">
               <span class="input-group-addon btn btn-default btn-lg" data-ng-click="$ctrl.update('phone', 'add', $index)">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
               </span>
@@ -73,7 +73,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr data-ng-repeat="x in $ctrl.customer.emails track by $index">
+                <tr data-ng-repeat="x in $ctrl.emails track by $index">
                   <td>
                     <p class="lead"> {{ x }} </p>
                   </td>
@@ -90,7 +90,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr data-ng-repeat="x in $ctrl.customer.phonenumbers track by $index">
+                <tr data-ng-repeat="x in $ctrl.phones track by $index">
                   <td>
                     <p class="lead"> {{ x }} </p>
                   </td>
@@ -101,7 +101,7 @@
         </div>
 
         <div class="padding-sm">
-          <button type="submit" class="btn btn-default btn-lg"> Submit </button>
+          <button type="submit" class="btn btn-default btn-lg" data-toggle="#editCustomerModal"> Submit </button>
         </div>
       </form>
     </div>
