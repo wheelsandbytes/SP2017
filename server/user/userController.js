@@ -98,7 +98,7 @@ module.exports = {
      */
     remove: function (req, res) {
         var id = req.params.id;
-        userModel.findByIdAndRemove(id, function (err, user) {
+        userModel.findOneAndRemove({email: id}, function (err, user) {
             if (err) {
                 return res.status(500).json({
                     message: 'Error when deleting the user.',

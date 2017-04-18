@@ -6,6 +6,8 @@
 
     this.isLoggedInVar = false;
     this.userID = '';
+    this.firstName = '';
+    this.lastname = '';
 
     this.isLoggedIn = () => {
       return this.isLoggedInVar;
@@ -17,6 +19,8 @@
 
     this.setLoginFalse = () => {
       this.userID = '';
+      this.firstName = '';
+      this.lastName = '';
       this.isLoggedInVar = false;
     };
 
@@ -28,5 +32,20 @@
       return this.userID;
     };
 
+    this.setFirstName = (first) => {
+      this.firstName = first;
+    };
+
+    this.getFirstName = (first) => {
+      return this.firstName;
+    };
+
+    this.setLastName = (first) => {
+      this.lastName = first;
+    };
+
+    this.getLastName = (first) => {
+      return this.lastName;
+    };
   });
 })();
