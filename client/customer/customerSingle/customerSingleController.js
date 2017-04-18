@@ -66,9 +66,9 @@
         notes: this.customer.notes
       };
 
-      console.log(jsonObject);
-      dbService.addNote(jsonObject);
-      console.log(this.customer);
+      if ( this.noteType.name != null && this.comment != null ) {
+        dbService.addNote(jsonObject);
+      }
     };
 
     this.addProduct = () => {
@@ -91,7 +91,9 @@
         products: this.customer.products
       };
 
-      dbService.addProduct(jsonObject);
+      if ( this.productName != null && this.productPrice != null && this.productFreq != null ) {
+        dbService.addProduct(jsonObject);
+      }
     };
 
     this.removeProduct = (index) => {
