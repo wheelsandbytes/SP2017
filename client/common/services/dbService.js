@@ -23,6 +23,7 @@
       .then((response) => {
         console.log("login success");
         loginService.setLoginTrue();
+        loginService.setUserID(response.data.userID);
         return response;
       }, (response) => {
         console.log("login failure");

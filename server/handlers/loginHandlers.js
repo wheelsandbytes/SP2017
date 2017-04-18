@@ -47,7 +47,7 @@ module.exports = {
             }
 
             req.session.user = session;
-            res.send(200);
+            res.send({userID: user._id});
           });
 
       });
