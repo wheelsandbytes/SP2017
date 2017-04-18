@@ -4,6 +4,9 @@
   angular.module('settingsController', ['dbService'])
   .controller('settingsController', function(dbService) {
 
+    this.first = 'Willie';
+    this.last = 'Jenkins';
+
     this.editFirst = false;
     this.editLast = false;
     this.editPassword = false;

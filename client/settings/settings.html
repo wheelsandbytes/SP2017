@@ -7,7 +7,7 @@
 
     <div data-ng-show="!editFirst">
       <p class="lead">
-        <em> First Name: </em> Willie
+        <em> First Name: </em> {{ $ctrl.first }}
         &nbsp&nbsp
         <button type="button" class="btn btn-lg btn-primary" data-ng-click="editFirst=!editFirst">
           <span class="glyphicon glyphicon-pencil"></span>
@@ -19,13 +19,13 @@
       <div class="form-group bubble-wrap-sm">
         <label for="first"> First Name: </label>
         <input type="test" class="form-control input-lg" data-ng-model="$ctrl.first" id="first" placeholder="Email" required>
-        <button type="submit" class="btn btn-default btn-lg"> Change First Name </button>
+        <button type="submit" data-ng-click="editFirst=!editFirst" class="btn btn-default btn-lg"> Change First Name </button>
       </div>
     </form>
 
     <div data-ng-show="!editLast">
       <p class="lead">
-        <em> Last Name: </em> Jenkins
+        <em> Last Name: </em> {{ $ctrl.last }}
         &nbsp&nbsp
         <button type="button" class="btn btn-lg btn-primary" data-ng-click="editLast=!editLast">
           <span class="glyphicon glyphicon-pencil"></span>
@@ -37,7 +37,7 @@
       <div class="form-group bubble-wrap-sm">
         <label for="last"> Last Name: </label>
         <input type="text" class="form-control input-lg" data-ng-model="$ctrl.last" id="last" placeholder="Password" required>
-        <button type="submit" class="btn btn-default btn-lg"> Change Last Name </button>
+        <button type="submit" data-ng-click="editLast=!editLast" class="btn btn-default btn-lg"> Change Last Name </button>
       </div>
     </form>
 
