@@ -27,6 +27,13 @@
         loginService.setFirstName(response.data.firstName);
         loginService.setLastName(response.data.lastName);
 
+
+        if(response.data.isAdmin) {
+          loginService.setIsAdminTrue();
+        } else {
+          loginService.setIsAdminFalse();
+        }
+
         return response;
       }, (response) => {
         console.log("login failure");
@@ -204,10 +211,7 @@
     this.deleteEmployee = (email) => {
       return $http({
         method: 'DELETE',
-        url: url + '/users/',
-        data: {
-          email : email
-        }
+        url: url + '/users/' + email
       })
       .then((response) => {
         console.log("delete Account success");
@@ -267,6 +271,25 @@
         return response;
       }, (response) => {
         console.log("ERROR: editCustomer");
+        console.log(response);
+        return response;
+      });
+    };
+
+    this.changePassword = (id,password) => {
+
+      return $http({
+        method: 'PUT',
+        url: url + '/users/' + id,
+        data: {
+          'password': password
+        }
+      })
+      .then((response) => {
+        console.log("SUCCESS: changePassword");
+        return response;
+      }, (response) => {
+        console.log("ERROR: changePassword");
         console.log(response);
         return response;
       });

@@ -79,6 +79,8 @@ module.exports = {
                 });
             }
 
+            console.log(req.body);
+
             user.firstname = req.body.firstname ? req.body.firstname : user.firstname;			user.lastname = req.body.lastname ? req.body.lastname : user.lastname;			user.password = req.body.password ? req.body.password : user.password;			user.email = req.body.email ? req.body.email : user.email;			user.isAdmin = req.body.isAdmin ? req.body.isAdmin : user.isAdmin;
             user.save(function (err, user) {
                 if (err) {

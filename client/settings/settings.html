@@ -9,9 +9,9 @@
       <p class="lead">
         <em> First Name: </em> {{ $ctrl.first }}
         &nbsp&nbsp
-        <button type="button" class="btn btn-lg btn-primary" data-ng-click="editFirst=!editFirst">
+        <!-- <button type="button" class="btn btn-lg btn-primary" data-ng-click="editFirst=!editFirst">
           <span class="glyphicon glyphicon-pencil"></span>
-        </button>
+        </button> -->
       </p>
     </div>
 
@@ -27,9 +27,9 @@
       <p class="lead">
         <em> Last Name: </em> {{ $ctrl.last }}
         &nbsp&nbsp
-        <button type="button" class="btn btn-lg btn-primary" data-ng-click="editLast=!editLast">
+        <!-- <button type="button" class="btn btn-lg btn-primary" data-ng-click="editLast=!editLast">
           <span class="glyphicon glyphicon-pencil"></span>
-        </button>
+        </button> -->
       </p>
     </div>
 
@@ -45,15 +45,17 @@
       <a href class="lead btn btn-default btn-lg" data-ng-click="editPassword=!editPassword"> Change Password </a>
     </div>
 
+    <p> {{ $ctrl.errorMessage }}</p>
+
     <form data-ng-show="editPassword" data-ng-submit="$ctrl.editPassword()">
       <div class="form-group bubble-wrap-sm">
-        <label for="passwordOne"> Old Password </label>
-        <input type="password" class="form-control input-lg" data-ng-model="$ctrl.passwordOne" id="passwordOne" placeholder="••••••" required>
+        <label for="passwordOne"> Password </label>
+        <input type="password" class="form-control input-lg" data-ng-model="$ctrl.passwordOne" id="passwordOne" required>
       </div>
 
       <div class="form-group bubble-wrap-sm">
-        <label for="passwordTwo"> New Password </label>
-        <input type="password" class="form-control input-lg" data-ng-model="$ctrl.passwordTwo" id="passwordTwo" placeholder="••••••" required>
+        <label for="passwordTwo"> Confirm Password </label>
+        <input type="password" class="form-control input-lg" data-ng-model="$ctrl.passwordTwo" id="passwordTwo" required>
       </div>
 
       <div class="bubble-wrap-sm">

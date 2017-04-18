@@ -30,14 +30,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr data-ng-repeat="employee in $ctrl.employeeList | filter:searchText | orderBy: 'name' : $ctrl.ascending track by $index">
+        <tr data-ng-repeat="employee in $ctrl.employeeList | filter:searchText track by $index">
           <td class="lead"> {{ employee.lastname }} </td>
           <td class="lead"> {{ employee.firstname }} </td>
           <td class="lead"> {{ employee.email }} </td>
           <td data-ng-if="employee.isAdmin" class="lead"> Yes </td>
           <td data-ng-if="!employee.isAdmin" class="lead">    </td>
 
-          <td data-ng-if="!employee.isAdmin"><button  type="submit" data-ng-click="$ctrl.fireEmployee(employee.email)" class="btn btn-danger"> Fire! </button></td>
+          <td data-ng-if="!employee.isAdmin"><button  type="submit" data-ng-click="$ctrl.fireEmployee(employee.email,$index)" class="btn btn-danger"> Fire! </button></td>
           <td data-ng-if="employee.isAdmin"><p>   </p></td>
         </tr>
       </tbody>

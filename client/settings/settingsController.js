@@ -4,8 +4,11 @@
   angular.module('settingsController', ['dbService','loginService'])
   .controller('settingsController', function(dbService,loginService) {
 
-    this.first = 'Willie';
-    this.last = 'Jenkins';
+console.log(loginService);
+    this.first = loginService.getFirstName();
+    this.last = loginService.getLastName();
+
+    console.log(loginService.getUserID());
 
     this.editFirst = false;
     this.editLast = false;
@@ -21,6 +24,19 @@
 
     this.editPassword = () => {
       console.log("EDIT Password");
+
+      console.log(loginService.getUserID());
+
+      if ( this.passwordOne == this.passwordTwo ) {
+        dbService.changePassword(loginService.getUserID(),this.passwordTwo).then((response) => {
+          this.errorMessage = '';
+
+        });
+      }
+      else {
+        this.errorMessage = 'Passwords do not match';
+        console.log('passwords need to match');
+      }
     }
 
   });

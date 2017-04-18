@@ -8,6 +8,20 @@
     this.userID = '';
     this.firstName = '';
     this.lastname = '';
+    this.isAdmin = false;
+
+    this.getIsAdmin = () => {
+      return this.isAdmin;
+    };
+
+    this.setIsAdminTrue = () => {
+      this.isAdmin = true;
+    };
+
+    this.setIsAdminFalse = () => {
+      this.isAdmin = false;
+    };
+
 
     this.isLoggedIn = () => {
       return this.isLoggedInVar;

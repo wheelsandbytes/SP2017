@@ -33,52 +33,52 @@
           'main': { template: '<app-main></app-main>' },
           'footer': { template: '<app-footer></app-footer>' }
         },
-        params: {},
+        params: { login: false },
       })
       .state('app.login', {
         url: '/login',
         template: '<app-login></app-login>',
-        params: {},
+        params: { login: true },
       })
       .state('app.createAdminAccount', {
         url: '/super-admin/create-admin-account',
         template: '<create-admin-account></create-admin-account>',
-        params: {},
+        params: { login: false },
       })
       .state('app.viewEmployees', {
         url: '/admin-panel/view-employees',
         template: '<view-employees></view-employees>',
-        params: {},
+        params: { login: false },
       })
       .state('app.createEmployee', {
         url: '/admin-panel/create-employee',
         template: '<create-employee></create-employee>',
-        params: {},
+        params: { login: false },
       })
       .state('app.createCustomer', {
         url: '/customer/create-customer',
         template: '<create-customer></create-customer>',
-        params: {},
+        params: { login: false },
       })
       .state('app.customerList', {
         url: '/customer/all-customers',
         template: '<all-customers></all-customers>',
-        params: {},
+        params: { login: false },
       })
       .state('app.customerSingle', {
         url: '/customer/single-customer',
         template: '<customer-single></customer-single>',
-        params: {},
+        params: { login: false },
       })
       .state('app.settings', {
         url: '/settings',
         template: '<settings></settings>',
-        params: {},
+        params: { login: false },
       })
       .state('app.editCustomer', {
         url: '/customer/edit-customer',
         template: '<edit-customer></edit-customer>',
-        params: {},
+        params: { login: false },
       })
       ;
 

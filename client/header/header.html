@@ -17,8 +17,8 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Profile <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a data-ui-sref="app.viewEmployees" href="#"> Admin Panel </a></li>
-            <li role="separator" class="divider"></li>
+            <li data-ng-if="$ctrl.isAdmin"><a data-ui-sref="app.viewEmployees" href="#"> Admin Panel </a></li>
+            <li data-ng-if="$ctrl.isAdmin" role="separator" class="divider"></li>
             <li><a data-ui-sref="app.settings"> Settings </a></li>
             <li role="separator" class="divider"></li>
             <li><a href data-ng-click="$ctrl.logout()"> Log Out </a></li>
