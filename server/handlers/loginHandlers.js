@@ -61,11 +61,11 @@ logout: (req, res) => {
 },
 
 authme: (req, res, next) => {
-    // if(!req.session.user) {
-    //   return res.status(401).send("You need to log in!");
-    // }
-    //
-    // console.log(req.session);
+    if(!req.session.user) {
+      return res.sendStatus(401, "You need to log in!");
+    }
+
+    console.log(req.session);
 
     next();
   }

@@ -1,15 +1,15 @@
 (() => {
   'use strict';
 
-  angular.module('dbService', [])
-  .service('dbService', function($http) {
+  angular.module('dbService', ['loginService'])
+  .service('dbService', function(loginService, $http) {
     const url = 'http://localhost:8080';
 
     let customer = null;
 
     this.getCustomer = () => {
       return customer;
-    }
+    };
 
     this.login = (email, password, cb) => {
       return $http({
@@ -22,9 +22,25 @@
     })
       .then((response) => {
         console.log("login success");
+        loginService.setLoginTrue();
         return response;
       }, (response) => {
         console.log("login failure");
+        return response;
+      });
+    };
+
+    this.logout = () => {
+      return $http({
+        method: 'POST',
+        url: url + '/logout',
+    })
+      .then((response) => {
+        loginService.setLoginFalse();
+        console.log("logout success");
+        return response;
+      }, (response) => {
+        console.log("logout failure");
         return response;
       });
     };
