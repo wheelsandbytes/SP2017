@@ -53,35 +53,26 @@
 
     this.addNote = () => {
 
-      this.customer.notes.push(
-        {
-          'noteType': this.noteType.name,
-          'comment': this.comment,
-          'Date': Date.now().toString(),
-          'User': 'Ed'
-        }
-      );
+      if ( this.noteType.name != null && this.comment != null ) {
+        this.customer.notes.push(
+          {
+            'noteType': this.noteType.name,
+            'comment': this.comment,
+            'Date': Date.now().toString(),
+            'User': 'Ed'
+          }
+        );
 
-      let jsonObject = {
-        id: this.customer._id,
-        notes: this.customer.notes
-      };
+        let jsonObject = {
+          id: this.customer._id,
+          notes: this.customer.notes
+        };
 
-      console.log(jsonObject);
-      dbService.addNote(jsonObject);
-      console.log(this.customer);
+        // console.log(jsonObject);
+        dbService.addNote(jsonObject);
+        // console.log(this.customer);
+      }
     };
-
-
-    this.editCustomer = () => {
-      // dbService.editCustomer(this.customer._id);
-    }
-  	// 'notes' : [{
-  	// 	'type': String,
-  	// 	'comment': String,
-  	// 	'Date': String,
-  	// 	'User': String
-  	// }],
 
     this.addProduct = () => {
 
@@ -106,7 +97,9 @@
         products: this.customer.products
       };
 
-      dbService.addProduct(jsonObject);
+      if ( this.productName != null && this.productPrice != null && this.productFreq != null ) {
+        dbService.addProduct(jsonObject);
+      }
     };
 
     this.removeProduct = (index) => {
@@ -121,6 +114,10 @@
       };
 
       dbService.addProduct(jsonObject);
+    };
+
+    this.editCustomer = () => {
+      // to do lol
     };
 
   });
